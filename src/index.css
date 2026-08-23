@@ -1,0 +1,193 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Bebas Neue", "Impact", sans-serif;
+  --font-cond: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --font-ui: "Inter", "Helvetica Neue", sans-serif;
+  --font-black: "Archivo Black", "Arial Black", sans-serif;
+  --color-cine-red: #c41228;
+  --color-cine-red-hot: #e01832;
+  --color-cine-ink: #0b0b0b;
+  --color-cine-panel: #111111;
+  --color-cine-beige: #ccc5c3;
+  --color-cine-muted: #8a8585;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+  background: #ccc5c3;
+}
+
+body {
+  font-family: var(--font-ui);
+  color: #f4f4f4;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: #c41228;
+  color: #fff;
+}
+
+.film-perforation {
+  background-image: radial-gradient(circle, #d8d8d8 1.4px, transparent 1.6px);
+  background-size: 14px 8px;
+  background-position: center;
+}
+
+.film-heads {
+  background-image: url("/images/film-tile.png");
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+}
+
+.crosshair {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 50% 50%;
+  background-position: center;
+}
+
+.crosshair-dark {
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+  background-size: 50% 50%;
+  background-position: center;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  animation: marquee 14s linear infinite;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.92); opacity: 0.55; }
+  70% { transform: scale(1.08); opacity: 0; }
+  100% { transform: scale(1.08); opacity: 0; }
+}
+
+.pulse-ring {
+  animation: pulse-ring 2.4s ease-out infinite;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(0.5deg); }
+}
+
+.animate-float {
+  animation: float-slow 5s ease-in-out infinite;
+}
+
+@keyframes ember-rise {
+  0% { transform: translateY(100%) translateX(0); opacity: 0; }
+  20% { opacity: 0.8; }
+  80% { opacity: 0.6; }
+  100% { transform: translateY(-100px) translateX(20px); opacity: 0; }
+}
+
+.animate-ember {
+  animation: ember-rise 4s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+  0%, 100% { filter: drop-shadow(0 0 25px rgba(196, 18, 40, 0.45)); }
+  50% { filter: drop-shadow(0 0 45px rgba(224, 24, 50, 0.8)); }
+}
+
+.glow-red {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.glass-panel {
+  background: rgba(18, 18, 18, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.text-gradient-red {
+  background: linear-gradient(135deg, #ffffff 30%, #e01832 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-mwijay {
+  background: linear-gradient(135deg, #ffffff 0%, #ff4d6d 50%, #c41228 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes laser-scan-h {
+  0% { transform: translateX(-100%); opacity: 0; }
+  30% { opacity: 1; }
+  70% { opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
+}
+
+.animate-laser-h {
+  animation: laser-scan-h 5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes laser-scan-v {
+  0% { transform: translateY(-100%); opacity: 0; }
+  30% { opacity: 1; }
+  70% { opacity: 1; }
+  100% { transform: translateY(100%); opacity: 0; }
+}
+
+.animate-laser-v {
+  animation: laser-scan-v 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-150%) skewX(-20deg); }
+  100% { transform: translateX(200%) skewX(-20deg); }
+}
+
+.animate-shimmer {
+  animation: shimmer 3s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-blink {
+  animation: blink 0.9s infinite;
+}
+
+@keyframes hud-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: hud-spin 20s linear infinite;
+}
+
